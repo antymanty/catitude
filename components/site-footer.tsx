@@ -1,8 +1,8 @@
 import { Button } from "@/components/ui/button"
-import { site } from "@/lib/site"
+import { hasLink, site } from "@/lib/site"
 
 export function SiteFooter() {
-  const xReady = site.xUrl !== "#"
+  const xReady = hasLink(site.xUrl)
 
   return (
     <footer className="bg-coral">

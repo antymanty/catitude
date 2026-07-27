@@ -1,9 +1,9 @@
 import { CopyCaButton } from "@/components/copy-ca-button"
 import { Button } from "@/components/ui/button"
-import { site, truncateCa } from "@/lib/site"
+import { hasLink, site, truncateCa } from "@/lib/site"
 
 export function TokenStrip() {
-  const buyReady = site.buyUrl !== "#"
+  const buyReady = hasLink(site.buyUrl)
   const hasCa = Boolean(site.ca)
 
   return (

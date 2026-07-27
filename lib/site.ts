@@ -1,4 +1,15 @@
-export const site = {
+export type SiteConfig = {
+  name: string
+  ticker: string
+  tagline: string
+  description: string
+  ca: string
+  buyUrl: string
+  xUrl: string
+  chain: string
+}
+
+export const site: SiteConfig = {
   name: "Catitude",
   ticker: "$CATITUDE",
   tagline: "The cat with too much attitude.",
@@ -7,7 +18,11 @@ export const site = {
   buyUrl: "#",
   xUrl: "https://x.com/catitude__",
   chain: "TBA",
-} as const
+}
+
+export function hasLink(url: string) {
+  return Boolean(url) && url !== "#"
+}
 
 export function truncateCa(ca: string, head = 6, tail = 4) {
   if (!ca) return ""

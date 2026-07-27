@@ -1,10 +1,10 @@
 import { BlinkingCat } from "@/components/blinking-cat"
 import { CopyCaButton } from "@/components/copy-ca-button"
 import { Button } from "@/components/ui/button"
-import { site } from "@/lib/site"
+import { hasLink, site } from "@/lib/site"
 
 export function Hero() {
-  const buyReady = site.buyUrl !== "#"
+  const buyReady = hasLink(site.buyUrl)
 
   return (
     <section className="relative min-h-svh overflow-hidden bg-coral">

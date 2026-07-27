@@ -1,11 +1,11 @@
 import Link from "next/link"
 
 import { Button } from "@/components/ui/button"
-import { site } from "@/lib/site"
+import { hasLink, site } from "@/lib/site"
 
 export function SiteHeader() {
-  const buyReady = site.buyUrl !== "#"
-  const xReady = site.xUrl !== "#"
+  const buyReady = hasLink(site.buyUrl)
+  const xReady = hasLink(site.xUrl)
 
   return (
     <header className="absolute inset-x-0 top-0 z-20">
