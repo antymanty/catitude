@@ -20,11 +20,11 @@ export function Hero() {
       <div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-t from-transparent via-transparent to-coral/50" />
 
       <div className="absolute inset-0 z-10 flex items-center justify-center px-5 pt-16 sm:px-8">
-        <div className="max-w-xl text-center">
-          <h1 className="font-display animate-rise text-[clamp(3.25rem,14vw,7.5rem)] leading-[0.85] font-extrabold tracking-tight text-ink">
+        <div className="flex w-full flex-col items-center text-center">
+          <h1 className="font-display animate-rise w-max max-w-full text-[clamp(3.25rem,14vw,7.5rem)] leading-[0.85] font-extrabold tracking-tight text-ink">
             {site.name.toUpperCase()}
           </h1>
-          <p className="animate-rise-delay mx-auto mt-5 max-w-md text-base leading-relaxed text-ink/85 sm:text-lg">
+          <p className="animate-rise-delay mt-5 max-w-md text-base leading-relaxed text-ink/85 sm:text-lg">
             {site.description}
           </p>
           <div className="animate-rise-delay-2 mt-8 flex flex-wrap items-center justify-center gap-3">

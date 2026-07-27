@@ -1,12 +1,17 @@
+"use client"
+
 import Image from "next/image"
+import { useEffect, useState } from "react"
 
 import { cn } from "@/lib/utils"
 
 /** Eye centers measured on catitude2.png (percent of image). */
 const EYES = [
-  { cx: 51.06, cy: 41.53, size: 18.4 },
-  { cx: 70.58, cy: 41.93, size: 16.8 },
+  { cx: 51.06, cy: 41.53, w: 16.4, h: 21.8 },
+  { cx: 70.58, cy: 41.93, w: 15.0, h: 20.0 },
 ] as const
+
+type BlinkKind = "once" | "double"
 
 type BlinkingCatProps = {
   className?: string
@@ -16,6 +21,14 @@ type BlinkingCatProps = {
   src?: string
 }
 
+function nextBlinkDelay() {
+  return 2400 + Math.random() * 3800
+}
+
+function pickBlink(): BlinkKind {
+  return Math.random() < 0.38 ? "double" : "once"
+}
+
 export function BlinkingCat({
   className,
   priority = false,
@@ -23,6 +36,35 @@ export function BlinkingCat({
   sizes = "(max-width: 768px) 90vw, 520px",
   src = "/catitude2.png",
 }: BlinkingCatProps) {
+  const [blink, setBlink] = useState<BlinkKind | null>(null)
+
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return
+
+    let timer = 0
+    let active = true
+
+    const schedule = (delay: number) => {
+      timer = window.setTimeout(() => {
+        if (!active) return
+        const kind = pickBlink()
+        setBlink(kind)
+        timer = window.setTimeout(() => {
+          if (!active) return
+          setBlink(null)
+          schedule(nextBlinkDelay())
+        }, kind === "double" ? 480 : 260)
+      }, delay)
+    }
+
+    schedule(900 + Math.random() * 700)
+
+    return () => {
+      active = false
+      window.clearTimeout(timer)
+    }
+  }, [])
+
   return (
     <div
       className={cn(
@@ -46,13 +88,17 @@ export function BlinkingCat({
         {EYES.map((eye, i) => (
           <span
             key={i}
-            className="cat-eyelid absolute rounded-full bg-black"
+            className={cn(
+              "cat-eyelid absolute rounded-full bg-black",
+              blink === "once" && "cat-blink-once",
+              blink === "double" && "cat-blink-double"
+            )}
             style={{
               left: `${eye.cx}%`,
               top: `${eye.cy}%`,
-              width: `${eye.size}%`,
-              height: `${eye.size}%`,
-              animationDelay: i === 1 ? "45ms" : undefined,
+              width: `${eye.w}%`,
+              height: `${eye.h}%`,
+              animationDelay: i === 1 ? "28ms" : undefined,
             }}
           />
         ))}
