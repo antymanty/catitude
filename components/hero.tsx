@@ -8,7 +8,7 @@ export function Hero() {
 
   return (
     <section className="relative min-h-svh overflow-hidden bg-coral">
-      <div className="pointer-events-none absolute bottom-[-6%] left-[-8%] w-[min(820px,118vw)] md:bottom-[-10%] md:left-[-4%] md:w-[min(900px,58vw)]">
+      <div className="pointer-events-none absolute bottom-[-6%] left-[-8%] z-0 w-[min(820px,118vw)] md:bottom-[-10%] md:left-[-4%] md:w-[min(900px,58vw)]">
         <BlinkingCat
           priority
           className="w-full"
@@ -17,17 +17,17 @@ export function Hero() {
         />
       </div>
 
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-transparent via-coral/20 to-coral/80 md:bg-gradient-to-l md:from-coral md:via-coral/50 md:to-transparent" />
+      <div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-t from-transparent via-transparent to-coral/50" />
 
-      <div className="relative z-10 mx-auto flex min-h-svh max-w-6xl flex-col justify-start px-5 pt-28 pb-14 sm:px-8 md:items-end md:justify-center md:pt-24 md:pb-24">
-        <div className="max-w-xl md:text-right">
+      <div className="absolute inset-0 z-10 flex items-center justify-center px-5 pt-16 sm:px-8">
+        <div className="max-w-xl text-center">
           <h1 className="font-display animate-rise text-[clamp(3.25rem,14vw,7.5rem)] leading-[0.85] font-extrabold tracking-tight text-ink">
             {site.name.toUpperCase()}
           </h1>
-          <p className="animate-rise-delay mt-5 max-w-md text-base leading-relaxed text-ink/85 sm:text-lg md:ml-auto">
+          <p className="animate-rise-delay mx-auto mt-5 max-w-md text-base leading-relaxed text-ink/85 sm:text-lg">
             {site.description}
           </p>
-          <div className="animate-rise-delay-2 mt-8 flex flex-wrap items-center gap-3 md:justify-end">
+          <div className="animate-rise-delay-2 mt-8 flex flex-wrap items-center justify-center gap-3">
             <Button
               nativeButton={false}
               render={<a href={site.buyUrl} />}
