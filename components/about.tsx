@@ -1,5 +1,4 @@
-import Image from "next/image"
-
+import { BlinkingCat } from "@/components/blinking-cat"
 import { site } from "@/lib/site"
 
 export function About() {
@@ -23,14 +22,11 @@ export function About() {
         </div>
 
         <div className="order-1 flex justify-center md:order-2 md:justify-end">
-          <div className="animate-float group relative aspect-square w-full max-w-md overflow-hidden">
-            <Image
-              src="/catitude-portrait.png"
-              alt={`${site.name} mascot — black cat with yellow eyes`}
-              width={640}
-              height={640}
-              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+          <div className="animate-float group w-full max-w-md">
+            <BlinkingCat
+              className="w-full transition-transform duration-500 group-hover:scale-[1.03]"
               sizes="(max-width: 768px) 90vw, 420px"
+              alt={`${site.name} mascot — black cat with yellow eyes`}
             />
           </div>
         </div>

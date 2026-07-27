@@ -1,5 +1,4 @@
-import Image from "next/image"
-
+import { BlinkingCat } from "@/components/blinking-cat"
 import { CopyCaButton } from "@/components/copy-ca-button"
 import { Button } from "@/components/ui/button"
 import { site } from "@/lib/site"
@@ -9,24 +8,16 @@ export function Hero() {
 
   return (
     <section className="relative min-h-svh overflow-hidden bg-coral">
-      <Image
-        src="/catitude-banner.jpg"
-        alt=""
-        fill
-        priority
-        sizes="100vw"
-        className="hidden object-cover object-[88%_center] md:block"
-      />
-      <Image
-        src="/catitude-portrait.png"
-        alt=""
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover object-[30%_center] md:hidden"
-      />
+      <div className="pointer-events-none absolute inset-x-0 bottom-[-8%] flex justify-center md:inset-y-0 md:right-[-4%] md:left-auto md:bottom-auto md:w-[52%] md:items-center md:justify-end">
+        <BlinkingCat
+          priority
+          className="w-[min(920px,135vw)] md:w-[min(920px,52vw)]"
+          sizes="(max-width: 768px) 135vw, 52vw"
+          alt=""
+        />
+      </div>
 
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-coral via-coral/75 to-coral/35 md:bg-gradient-to-r md:from-coral md:via-coral/70 md:to-transparent" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-coral via-coral/75 to-transparent md:bg-gradient-to-r md:from-coral md:via-coral/85 md:to-transparent" />
 
       <div className="relative z-10 mx-auto flex min-h-svh max-w-6xl flex-col justify-end px-5 pb-14 pt-28 sm:px-8 sm:pb-20 md:justify-center md:pb-24">
         <div className="max-w-xl">
