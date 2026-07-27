@@ -22,7 +22,7 @@ export function About() {
         </div>
 
         <div className="order-1 flex justify-center md:order-2 md:justify-end">
-          <div className="animate-float group w-full max-w-md">
+          <div className="animate-float group w-full max-w-md bg-coral">
             <BlinkingCat
               className="w-full transition-transform duration-500 group-hover:scale-[1.03]"
               sizes="(max-width: 768px) 90vw, 420px"
