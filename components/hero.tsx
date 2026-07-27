@@ -8,26 +8,26 @@ export function Hero() {
 
   return (
     <section className="relative min-h-svh overflow-hidden bg-coral">
-      <div className="pointer-events-none absolute inset-x-0 bottom-[-8%] flex justify-center md:inset-y-0 md:right-[-4%] md:left-auto md:bottom-auto md:w-[52%] md:items-center md:justify-end">
+      <div className="pointer-events-none absolute bottom-[-6%] left-[-8%] w-[min(820px,118vw)] md:bottom-[-10%] md:left-[-4%] md:w-[min(900px,58vw)]">
         <BlinkingCat
           priority
-          className="w-[min(920px,135vw)] md:w-[min(920px,52vw)]"
-          sizes="(max-width: 768px) 135vw, 52vw"
+          className="w-full"
+          sizes="(max-width: 768px) 118vw, 58vw"
           alt=""
         />
       </div>
 
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-coral via-coral/75 to-transparent md:bg-gradient-to-r md:from-coral md:via-coral/85 md:to-transparent" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-transparent via-coral/20 to-coral/80 md:bg-gradient-to-l md:from-coral md:via-coral/50 md:to-transparent" />
 
-      <div className="relative z-10 mx-auto flex min-h-svh max-w-6xl flex-col justify-end px-5 pb-14 pt-28 sm:px-8 sm:pb-20 md:justify-center md:pb-24">
-        <div className="max-w-xl">
+      <div className="relative z-10 mx-auto flex min-h-svh max-w-6xl flex-col justify-start px-5 pt-28 pb-14 sm:px-8 md:items-end md:justify-center md:pt-24 md:pb-24">
+        <div className="max-w-xl md:text-right">
           <h1 className="font-display animate-rise text-[clamp(3.25rem,14vw,7.5rem)] leading-[0.85] font-extrabold tracking-tight text-ink">
             {site.name.toUpperCase()}
           </h1>
-          <p className="animate-rise-delay mt-5 max-w-md text-base leading-relaxed text-ink/85 sm:text-lg">
+          <p className="animate-rise-delay mt-5 max-w-md text-base leading-relaxed text-ink/85 sm:text-lg md:ml-auto">
             {site.description}
           </p>
-          <div className="animate-rise-delay-2 mt-8 flex flex-wrap items-center gap-3">
+          <div className="animate-rise-delay-2 mt-8 flex flex-wrap items-center gap-3 md:justify-end">
             <Button
               nativeButton={false}
               render={<a href={site.buyUrl} />}

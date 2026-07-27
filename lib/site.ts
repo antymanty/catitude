@@ -5,7 +5,7 @@ export const site = {
   description: "The cat with too much attitude. Liquidity optional.",
   ca: "",
   buyUrl: "#",
-  xUrl: "#",
+  xUrl: "https://x.com/catitude__",
   chain: "TBA",
 } as const
 
